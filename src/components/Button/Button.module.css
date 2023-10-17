@@ -1,0 +1,4 @@
+.rootButton {
+  background-color: var(--theme-bg-color);
+  color: var(--theme-text-color);
+}

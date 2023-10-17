@@ -1,0 +1,6 @@
+.rootChart {
+  background-color: var(--theme-bg-color);
+  border: 2px solid var(--theme-text-color);
+  padding: 10px;
+  color: var(--theme-text-color);
+}
