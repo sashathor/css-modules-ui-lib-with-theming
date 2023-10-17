@@ -8,7 +8,7 @@ const ThemeContext = createContext<ThemeContextProps | undefined>(undefined);
 
 type ThemeProviderProps = {
   children?: React.ReactNode;
-  theme?: string;
+  theme?: string | Theme;
 };
 
 type ThemeProps = "bgColor" | "textColor";
@@ -41,6 +41,15 @@ const parseComputedStyle = (themeContainer: HTMLElement) => {
   return themeObj;
 };
 
+const setContainerStyle = (themeContainer: HTMLElement, theme: Theme) => {
+  themeObjDict.forEach((item) => {
+    const themePropValue = theme[item.name];
+    if (themePropValue) {
+      themeContainer.style.setProperty(item.cssVarName, themePropValue);
+    }
+  });
+};
+
 export const useTheme = (): { themeObj?: Theme } => {
   const context = useContext(ThemeContext);
 
@@ -56,15 +65,21 @@ export const ThemeProvider = ({ children, theme }: ThemeProviderProps) => {
   const ref = React.useRef(null);
 
   React.useEffect(() => {
-    if (!ref.current) {
+    if (!(ref.current && theme)) {
       return;
     }
 
-    setThemeObj(parseComputedStyle(ref.current));
+    if (typeof theme === "string") {
+      setThemeObj(parseComputedStyle(ref.current));
+      return;
+    }
+
+    setContainerStyle(ref.current, theme);
+    setThemeObj(theme);
   }, [ref, theme]);
 
   return (
-    <div ref={ref} className={theme}>
+    <div ref={ref} className={typeof theme === "string" ? theme : undefined}>
       <ThemeContext.Provider value={{ themeObj }}>
         {children}
       </ThemeContext.Provider>
