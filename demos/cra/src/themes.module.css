@@ -1,11 +1,9 @@
 .light {
-  --bg-color: #00ff00;
   --theme-bg-color: blue;
   --theme-text-color: pink;
 }
 
 .dark {
-  --bg-color: #fff000;
   --theme-bg-color: pink;
   --theme-text-color: blue;
 }

@@ -18,7 +18,7 @@ A simple demo of the library in a Create React App project.
 ```bash
 cd demos/cra
 npm install
-npm start
+npm run start
 ```
 
 ### Custom Themes switching
@@ -143,3 +143,24 @@ export const App = () => (
 ```
 
 <img src="./docs/cra-emotion-css-override.png" /><br /><br />
+
+## Next.js Demo
+
+A simple demo of the library in a Next.js project.
+Note: The library is compatible with Next.js Server Components out of the box.
+
+### Getting Started
+
+```bash
+cd demos/nextjs
+npm install
+npm run dev
+```
+
+### Custom Theme
+
+<img src="./docs/nextjs-custom-theme.png" /><br /><br />
+
+### Default Theme
+
+<img src="./docs/nextjs-default-theme.png" /><br /><br />
