@@ -1,6 +1,6 @@
 {
   "name": "@sashathor/css-modules-ui-lib-with-theming",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": false,
   "description": "A boilerplate for a simple UI library featuring CSS Modules and theming support via either CSS Custom Properties or a JavaScript theme object.",
   "main": "dist/cjs/index.js",

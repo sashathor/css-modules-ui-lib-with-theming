@@ -21,7 +21,21 @@ npm install
 npm run start
 ```
 
-### Custom Themes switching
+### Pass custom themes to `ThemeProvider` as CSS class names
+
+```css
+// themes.module.css
+
+.light {
+  --theme-bg-color: blue;
+  --theme-text-color: pink;
+}
+
+.dark {
+  --theme-bg-color: pink;
+  --theme-text-color: blue;
+}
+```
 
 ```tsx
 // App.tsx
@@ -32,6 +46,7 @@ import {
   Chart,
   ThemeProvider,
 } from "@sashathor/css-modules-ui-lib-with-theming";
+import themes from "./themes.module.css";
 
 export const App = () => {
   const [theme, setTheme] = React.useState(themes.light);
@@ -59,6 +74,37 @@ export const App = () => {
 
 <img src="./docs/cra-custom-themes-switching.gif" /><br /><br />
 
+### Pass a custom theme to `ThemeProvider` as JS theme object
+
+```tsx
+// App.tsx
+
+import React from "react";
+import {
+  Button,
+  Chart,
+  ThemeProvider,
+} from "@sashathor/css-modules-ui-lib-with-theming";
+
+export const App = () => (
+  <>
+    <ThemeProvider
+      theme={{
+        bgColor: "red",
+        textColor: "white",
+      }}
+    >
+      <div style={{ marginBottom: 20 }}>
+        <Button>Button</Button>
+      </div>
+      <Chart />
+    </ThemeProvider>
+  </>
+);
+```
+
+<img src="./docs/cra-custom-theme-js-object.png" /><br /><br />
+
 ### Default Theme outside of `ThemeProvider`
 
 ```tsx
@@ -82,7 +128,7 @@ export const App = () => (
 ### Style override via `className` prop
 
 ```css
-// theme.module.css
+// themes.module.css
 
 .customChart {
   background-color: red;
@@ -93,7 +139,7 @@ export const App = () => (
 // App.tsx
 
 import React from "react";
-import themeStyles from "./theme.module.css";
+import themes from "./theme.module.css";
 import { Chart } from "@sashathor/css-modules-ui-lib-with-theming";
 
 export const App = () => (

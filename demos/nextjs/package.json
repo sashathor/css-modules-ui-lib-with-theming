@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@sashathor/css-modules-ui-lib-with-theming": "^0.0.1",
+    "@sashathor/css-modules-ui-lib-with-theming": "^0.0.2",
     "next": "13.5.5",
     "react": "^18",
     "react-dom": "^18"

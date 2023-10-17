@@ -13,6 +13,8 @@ function App() {
 
   return (
     <div className="App">
+      <h1>`ThemeProvider`</h1>
+      <h2>Pass custom themes as CSS classes</h2>
       <div style={{ marginBottom: 20 }}>
         <ThemeProvider theme={theme}>
           <div style={{ marginBottom: 20 }}>
@@ -28,6 +30,20 @@ function App() {
         >
           switch theme
         </button>
+      </div>
+      <h2>Pass a custom theme as JS theme object</h2>
+      <div style={{ marginBottom: 20 }}>
+        <ThemeProvider
+          theme={{
+            bgColor: "red",
+            textColor: "white",
+          }}
+        >
+          <div style={{ marginBottom: 20 }}>
+            <Button>Button</Button>
+          </div>
+          <Chart />
+        </ThemeProvider>
       </div>
       <hr />
       <h1>Elements outside the ThemeProvider</h1>
